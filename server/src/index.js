@@ -195,8 +195,8 @@ app.put('/api/me', userRoute((req, user) => {
     if (!String(name).trim()) fail(400, 'Name is required');
     user.name = String(name).trim();
     if (!user.upiId) {
-      let handle = user.phone + '@plum';
-      while (D().users.some((u) => u.upiId === handle && u.id !== user.id)) handle = user.phone + store.digits(2) + '@plum';
+      let handle = user.phone + '@ppy';
+      while (D().users.some((u) => u.upiId === handle && u.id !== user.id)) handle = user.phone + store.digits(2) + '@ppy';
       user.upiId = handle;
     }
   }
@@ -293,7 +293,7 @@ app.get('/api/users/resolve', userRoute((req, user) => {
   const upi = String(req.query.upi || '').toLowerCase().trim();
   const phone = String(req.query.phone || '').replace(/\D/g, '').slice(-10);
   const target = D().users.find((u) => (upi && u.upiId === upi) || (phone && u.phone === phone));
-  if (!target || !target.profileComplete) fail(404, upi ? 'This UPI ID does not exist' : 'This number is not on PlumPay yet');
+  if (!target || !target.profileComplete) fail(404, upi ? 'This UPI ID does not exist' : 'This number is not on PhonePayy yet');
   if (target.id === user.id) fail(400, 'You cannot pay yourself. Use self transfer instead.');
   if (target.blocked) fail(400, 'This account cannot receive payments right now');
   return { user: publicUser(target) };
@@ -601,7 +601,7 @@ app.post('/api/rewards/:id/scratch', userRoute((req, user) => {
     if (r.amount > 0 && acc) {
       const t = {
         id: store.id('txn'), upiRef: store.digits(12), type: 'cashback', status: 'success', fromUserId: null, fromAccountId: null,
-        fromName: 'PlumPay Rewards', fromHandle: 'rewards@plum', toUserId: user.id, toAccountId: acc.id, toName: user.name, toHandle: user.upiId,
+        fromName: 'PhonePayy Rewards', fromHandle: 'rewards@ppy', toUserId: user.id, toAccountId: acc.id, toName: user.name, toHandle: user.upiId,
         amount: r.amount, note: 'Cashback won', category: 'Cashback', createdAt: Date.now(), createdBy: 'system', applied: false,
       };
       applyBalances(t, 1);
@@ -667,7 +667,7 @@ app.post('/api/admin/login', wrap((req) => {
 
 // Describes this app's controls so a shared admin panel (the Admin Hub) can adapt to it.
 app.get('/api/admin/schema', adminRoute(() => ({
-  app: { name: D().settings.appName, kind: 'plumpay', version: 1 },
+  app: { name: D().settings.appName, kind: 'phonepayy', version: 1 },
   features: {
     scan: ['Scan QR code', 'Camera QR scanner and My QR'], payContacts: ['Pay Anyone', 'Pay contacts, phone numbers and UPI IDs'],
     bankTransfer: ['Bank transfer', 'Pay to account number + IFSC'], selfTransfer: ['Self transfer', 'Move money between own accounts'],
@@ -756,7 +756,7 @@ app.post('/api/admin/users', adminRoute((req, admin) => {
   if (!String(b.name || '').trim()) fail(400, 'Name is required');
   if (phone.length !== 10) fail(400, 'Phone must be 10 digits');
   if (D().users.some((u) => u.phone === phone)) fail(400, 'A user with this phone already exists');
-  const upi = String(b.upiId || '').trim().toLowerCase() || phone + '@plum';
+  const upi = String(b.upiId || '').trim().toLowerCase() || phone + '@ppy';
   if (D().users.some((u) => u.upiId === upi)) fail(400, 'UPI ID already taken');
   const u = {
     id: store.id('usr'), name: String(b.name).trim(), phone, email: b.email || '', upiId: upi, photo: null,
@@ -870,8 +870,8 @@ app.post('/api/admin/accounts/:id/adjust', adminRoute((req, admin) => {
   if (req.body.record && mode !== 'set' && amount > 0) {
     D().transactions.unshift({
       id: store.id('txn'), upiRef: store.digits(12), type: 'admin', status: 'success',
-      fromUserId: mode === 'debit' ? acc.userId : null, fromAccountId: mode === 'debit' ? acc.id : null, fromName: mode === 'debit' ? user.name : (req.body.label || 'PlumPay'),
-      toUserId: mode === 'credit' ? acc.userId : null, toAccountId: mode === 'credit' ? acc.id : null, toName: mode === 'credit' ? user.name : (req.body.label || 'PlumPay'),
+      fromUserId: mode === 'debit' ? acc.userId : null, fromAccountId: mode === 'debit' ? acc.id : null, fromName: mode === 'debit' ? user.name : (req.body.label || 'PhonePayy'),
+      toUserId: mode === 'credit' ? acc.userId : null, toAccountId: mode === 'credit' ? acc.id : null, toName: mode === 'credit' ? user.name : (req.body.label || 'PhonePayy'),
       toHandle: '', amount, note: req.body.reason || 'Balance adjustment', category: 'Adjustment', createdAt: Date.now(), createdBy: 'admin', applied: true,
     });
   }
@@ -1142,7 +1142,7 @@ process.on('SIGINT', async () => { await store.flush(); process.exit(0); });
 
 store.load().then(() => server.listen(PORT, '0.0.0.0', () => {
   const ips = Object.values(os.networkInterfaces()).flat().filter((i) => i && i.family === 'IPv4' && !i.internal).map((i) => i.address);
-  console.log(`\nPlumPay server running on port ${PORT}`);
+  console.log(`\nPhonePayy server running on port ${PORT}`);
   console.log(`  Admin panel: http://localhost:${PORT}/admin   (admin / admin123)`);
   ips.forEach((ip) => console.log(`  Phone/LAN:   http://${ip}:${PORT}`));
   console.log('');

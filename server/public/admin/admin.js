@@ -1,4 +1,4 @@
-/* PlumPay Admin Panel — plain JS single page app */
+/* PhonePayy Admin Panel — plain JS single page app */
 const S = { token: localStorage.getItem('pn_admin_token'), admin: null, route: 'dashboard', users: [], dirty: false };
 const $ = (sel, root = document) => root.querySelector(sel);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -383,7 +383,7 @@ function adjustBalance(acc, done) {
       { name: 'amount', label: 'Amount (₹)', type: 'number', step: '0.01', required: true },
       { name: 'reason', label: 'Reason / note', span2: true, placeholder: 'e.g. Cashback correction' },
       { name: 'record', label: 'Show this as a transaction in the user\'s history', type: 'checkbox', span2: true },
-      { name: 'label', label: 'Shown as from/to (if recorded)', value: 'PlumPay', span2: true },
+      { name: 'label', label: 'Shown as from/to (if recorded)', value: 'PhonePayy', span2: true },
     ],
     onSubmit: async (v) => { await run(() => api('POST', `/admin/accounts/${acc.id}/adjust`, v), 'Balance updated'); done(); return false; },
   });
@@ -491,7 +491,7 @@ PAGES.transactions = async (page) => {
     const head = ['Date', 'UPI Ref', 'Type', 'Status', 'From', 'To', 'Amount', 'Note'];
     const lines = rows.map((t) => [new Date(t.createdAt).toISOString(), t.upiRef, t.type, t.status, t.fromName, t.toName, t.amount, t.note || ''].map((x) => `"${String(x).replace(/"/g, '""')}"`).join(','));
     const blob = new Blob([[head.join(','), ...lines].join('\n')], { type: 'text/csv' });
-    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'plumpay-transactions.csv' });
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'phonepayy-transactions.csv' });
     a.click();
   };
   draw();

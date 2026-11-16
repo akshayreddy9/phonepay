@@ -19,7 +19,7 @@ export default function Login() {
     try {
       const r = await post('/auth/send-otp', { phone });
       // Simulated SMS: shown like an incoming message notification.
-      setTimeout(() => showBanner({ app: 'Messages', icon: 'message-text', title: 'VM-PLUMPAYS', body: `${r.code} is your PlumPay verification code. Do not share it with anyone.`, onPress: () => {}, duration: 8000 }), 900);
+      setTimeout(() => showBanner({ app: 'Messages', icon: 'message-text', title: 'VM-PHNPAY', body: `${r.code} is your PhonePayy verification code. Do not share it with anyone.`, onPress: () => {}, duration: 8000 }), 900);
       router.push({ pathname: '/otp', params: { phone: r.phone, code: r.code } });
     } catch (e) {
       setError(e.message);
@@ -56,7 +56,7 @@ export default function Login() {
         <View style={{ padding: 24 }}>
           <Btn title="Next" onPress={send} disabled={phone.length !== 10} loading={loading} />
           <Text style={{ fontSize: 12, color: C.faint, textAlign: 'center', marginTop: 14, lineHeight: 18 }}>
-            By continuing you agree to the PlumPay Terms of Service and Privacy Policy.
+            By continuing you agree to the PhonePayy Terms of Service and Privacy Policy.
           </Text>
         </View>
       </KeyboardAvoidingView>

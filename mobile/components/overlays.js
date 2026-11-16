@@ -23,7 +23,7 @@ export function TopBanner() {
       <Pressable style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }} onPress={() => { if (banner?.onPress) banner.onPress(); else router.push('/notifications'); setBanner(null); }}>
         <View style={st.bannerIcon}><MaterialCommunityIcons name={banner?.icon || 'bell-ring'} size={20} color="#fff" /></View>
         <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 12, color: C.muted }}>{banner?.app || 'PlumPay'} · now</Text>
+          <Text style={{ fontSize: 12, color: C.muted }}>{banner?.app || 'PhonePayy'} · now</Text>
           <Text style={{ fontSize: 15, fontWeight: '600', color: C.text }} numberOfLines={1}>{banner?.title}</Text>
           {!!banner?.body && <Text style={{ fontSize: 14, color: C.muted }} numberOfLines={2}>{banner.body}</Text>}
         </View>
@@ -80,14 +80,14 @@ export function LockScreen() {
   const unlock = async () => {
     const has = await LocalAuthentication.hasHardwareAsync();
     if (!has) return setLocked(false);
-    const r = await LocalAuthentication.authenticateAsync({ promptMessage: 'Unlock PlumPay' });
+    const r = await LocalAuthentication.authenticateAsync({ promptMessage: 'Unlock PhonePayy' });
     if (r.success) setLocked(false);
   };
   useEffect(() => { unlock(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <View style={[StyleSheet.absoluteFill, { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', zIndex: 60 }]}>
       <Logo size={72} />
-      <Text style={{ fontSize: 20, marginTop: 24, color: C.text }}>PlumPay is locked</Text>
+      <Text style={{ fontSize: 20, marginTop: 24, color: C.text }}>PhonePayy is locked</Text>
       <Text style={{ fontSize: 14, marginTop: 6, color: C.muted }}>Use your screen lock to unlock</Text>
       <Btn title="Unlock" onPress={unlock} style={{ marginTop: 32, width: 200 }} />
     </View>

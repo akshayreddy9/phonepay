@@ -43,7 +43,7 @@ export default function Ticket() {
             const mine = item.from === 'user';
             return (
               <View style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '82%' }}>
-                {!mine && <Text style={{ fontSize: 12, color: C.muted, marginBottom: 4 }}>{item.name || 'PlumPay Support'}</Text>}
+                {!mine && <Text style={{ fontSize: 12, color: C.muted, marginBottom: 4 }}>{item.name || 'PhonePayy Support'}</Text>}
                 <View style={{ backgroundColor: mine ? C.blue : C.surface, borderRadius: 18, padding: 12, borderBottomRightRadius: mine ? 4 : 18, borderBottomLeftRadius: mine ? 18 : 4 }}>
                   <Text style={{ color: mine ? '#fff' : C.text, fontSize: 15 }}>{item.text}</Text>
                 </View>

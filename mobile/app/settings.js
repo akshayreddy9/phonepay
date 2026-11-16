@@ -39,7 +39,7 @@ export default function Settings() {
           <Row icon="bank-outline" title="Bank accounts & UPI PIN" chevron onPress={() => router.push('/bank-accounts')} />
         </Group>
         <Group title="Security">
-          <Row icon="fingerprint" title="Use screen lock" subtitle="Unlock PlumPay with fingerprint, face or PIN" right={<Switch value={lockEnabled} onValueChange={toggleLock} trackColor={{ true: C.blueTint }} thumbColor={lockEnabled ? C.blue : '#f4f3f4'} />} />
+          <Row icon="fingerprint" title="Use screen lock" subtitle="Unlock PhonePayy with fingerprint, face or PIN" right={<Switch value={lockEnabled} onValueChange={toggleLock} trackColor={{ true: C.blueTint }} thumbColor={lockEnabled ? C.blue : '#f4f3f4'} />} />
           <Row icon="shield-lock-outline" title="Privacy" subtitle="Your data is only shared with your bank to process payments" />
         </Group>
         <Group title="Connection">
@@ -47,7 +47,7 @@ export default function Settings() {
         </Group>
         <Group title="About">
           <Row icon="help-circle-outline" title="Help & feedback" chevron onPress={() => router.push('/help')} />
-          <Row icon="information-outline" title="About PlumPay" subtitle="Version 1.0.0 · College project. No real money is moved." />
+          <Row icon="information-outline" title="About PhonePayy" subtitle="Version 1.0.0 · College project. No real money is moved." />
           <Row icon="logout" title="Sign out" iconColor={C.red} titleStyle={{ color: C.red }} onPress={() => signOut()} />
         </Group>
       </ScrollView>

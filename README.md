@@ -1,4 +1,4 @@
-# PlumPay: UPI Payments App + Admin Panel
+# PhonePayy: UPI Payments App + Admin Panel
 
 A PhonePe-style UPI payments app for Android (React Native / Expo) with a web admin panel that controls everything in the app in real time. The screens follow the layout, colours and flows of the PhonePe app (home, profile panel, UPI settings, bank details, Balance & History, receipts, chat), but under its own name and logo. College project: **no real money moves**. All balances and transactions live in the project's own database, and every receipt says "Demo transaction".
 
@@ -22,16 +22,16 @@ phonepay/
 
 | What | Where |
 |---|---|
-| Admin panel | `https://plumpay.onrender.com/admin` or the shared Admin Hub (hosted on Render, data in MongoDB Atlas) |
-| Server / API | `https://plumpay.onrender.com` |
+| Admin panel | `https://phonepayy.onrender.com/admin` or the shared Admin Hub (hosted on Render, data in MongoDB Atlas) |
+| Server / API | `https://phonepayy.onrender.com` |
 | Android APK | Built with Expo EAS (see section 5) |
-| Source code | <https://github.com/akshayreddy9/plumpay> |
+| Source code | <https://github.com/akshayreddy9/phonepayy> |
 
 The APK always talks to the online server. On Render's free plan the server sleeps after about 15 minutes without use, so the **first request after a break takes up to a minute**. Open the admin panel a minute before a demo to wake it up.
 
 ## 1. Run it locally (about 5 minutes)
 
-PlumPay uses port **4002** (server) and **8083** (Expo), so it can run at the same time as GGPay (4000 / 8081).
+PhonePayy uses port **4002** (server) and **8083** (Expo), so it can run at the same time as GGPay (4000 / 8081).
 
 **You need:** a Windows laptop with [Node.js](https://nodejs.org) (LTS) and an Android phone on the **same Wi-Fi**.
 
@@ -69,7 +69,7 @@ No phone? Double-click `START-PREVIEW.bat` to use the app in the browser inside 
 
 ## 3. Admin panel (`/admin`)
 
-The same controls are also available in the shared **Admin Hub** (separate project in `../admin-hub`), which manages GGPay, PlumPay and future clones from one login. PlumPay describes its own controls to the hub through `GET /api/admin/schema`.
+The same controls are also available in the shared **Admin Hub** (separate project in `../admin-hub`), which manages GGPay, PhonePayy and future clones from one login. PhonePayy describes its own controls to the hub through `GET /api/admin/schema`.
 
 
 | Page | Control |
@@ -93,8 +93,8 @@ Every payment checks the UPI PIN (salted **scrypt** hash), balance, per-payment 
 
 ## 5. Hosting (same setup as the GGPay project)
 
-1. **GitHub:** the code is in `akshayreddy9/plumpay`.
-2. **Render:** Dashboard → **New → Blueprint** → pick the `plumpay` repo. When asked for `MONGODB_URI`, paste the MongoDB Atlas connection string (the same cluster as GGPay is fine: the blueprint sets `MONGODB_DB=plumpay`, so the data stays separate). If the name `plumpay` is taken, Render gives another URL: put it in `mobile/app.json` → `extra.serverUrl`.
+1. **GitHub:** the code is in `akshayreddy9/phonepayy`.
+2. **Render:** Dashboard → **New → Blueprint** → pick the `phonepayy` repo. When asked for `MONGODB_URI`, paste the MongoDB Atlas connection string (the same cluster as GGPay is fine: the blueprint sets `MONGODB_DB=phonepayy`, so the data stays separate). If the name `phonepayy` is taken, Render gives another URL: put it in `mobile/app.json` → `extra.serverUrl`.
 3. **APK (Expo EAS):**
    ```bash
    cd mobile

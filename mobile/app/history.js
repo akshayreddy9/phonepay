@@ -23,7 +23,7 @@ export default function History() {
   const [q, setQ] = useState('');
   const [filter, setFilter] = useState('all');
   const [showFilters, setShowFilters] = useState(params.filter === '1');
-  const appName = settings?.appName || 'PlumPay';
+  const appName = settings?.appName || 'PhonePayy';
 
   useLive(() => { get('/transactions').then((r) => setTxns(r.transactions)).catch((e) => toast(e.message)); }, []);
 

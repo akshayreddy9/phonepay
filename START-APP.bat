@@ -1,5 +1,5 @@
 @echo off
-title PlumPay App (Expo)
+title PhonePayy App (Expo)
 cd /d "%~dp0mobile"
 if not exist node_modules (
   echo Installing app packages, this takes a few minutes the first time...

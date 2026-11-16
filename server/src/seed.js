@@ -44,7 +44,7 @@ const MERCHANTS = [
   ['Indian Oil Petrol Pump', '9000000008', 'Fuel', 'fuel'],
 ];
 
-const upiHandle = (phone) => `${phone}@plum`;
+const upiHandle = (phone) => `${phone}@ppy`;
 
 function buildSeed() {
   const now = Date.now();
@@ -54,7 +54,7 @@ function buildSeed() {
     offers: [], banners: [], banks: [], billers: [], operators: [], plans: [],
     notifications: [], tickets: [], auditLogs: [], admins: [], sessions: {}, adminSessions: {}, otps: {},
     settings: {
-      appName: 'PlumPay',
+      appName: 'PhonePayy',
       appVersion: 'v1.0.0',
       maintenanceMode: false,
       maintenanceMessage: 'We are upgrading our systems. Please try again in a little while.',
@@ -231,7 +231,7 @@ function buildSeed() {
   }));
   db.transactions.sort((a, b) => b.createdAt - a.createdAt);
 
-  db.notifications.push({ id: id('ntf'), userId: null, title: 'Welcome to PlumPay!', body: 'Pay anyone, recharge and pay bills instantly with UPI.', createdAt: now - 2 * DAY, readBy: [] });
+  db.notifications.push({ id: id('ntf'), userId: null, title: 'Welcome to PhonePayy!', body: 'Pay anyone, recharge and pay bills instantly with UPI.', createdAt: now - 2 * DAY, readBy: [] });
 
   db.tickets.push({
     id: id('tkt'), userId: rahul.id, subject: 'Money debited but payment failed', status: 'open', createdAt: now - 2 * DAY,

@@ -47,7 +47,7 @@ export default function Otp() {
     setSeconds(30);
     try {
       const r = await post('/auth/send-otp', { phone });
-      showBanner({ app: 'Messages', icon: 'message-text', title: 'VM-PLUMPAYS', body: `${r.code} is your PlumPay verification code.`, onPress: () => {}, duration: 8000 });
+      showBanner({ app: 'Messages', icon: 'message-text', title: 'VM-PHNPAY', body: `${r.code} is your PhonePayy verification code.`, onPress: () => {}, duration: 8000 });
     } catch (e) { setError(e.message); }
   };
 

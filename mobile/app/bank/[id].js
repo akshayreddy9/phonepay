@@ -24,7 +24,7 @@ function Detail({ k, v }) {
   );
 }
 
-const HANDLES = ['plum', 'plumaxl', 'plumybl'];
+const HANDLES = ['ppy', 'ppyaxl', 'ppyybl'];
 
 // Account Details: masked number, primary, PIN, balance, UPI IDs, nickname, unlink.
 export default function BankDetail() {
@@ -38,7 +38,7 @@ export default function BankDetail() {
   const a = accounts.find((x) => x.id === id);
   if (!a) return <View style={{ flex: 1, backgroundColor: '#F5F5F7' }} />;
   const phone = user?.phone || '';
-  const idFor = (h, i) => (i === 0 && h === 'plum' && a.primary ? user?.upiId : `${phone}-2@${h}`);
+  const idFor = (h, i) => (i === 0 && h === 'ppy' && a.primary ? user?.upiId : `${phone}-2@${h}`);
 
   const check = () => requestPin({
     account: a, amount: null, processingText: 'Fetching balance',

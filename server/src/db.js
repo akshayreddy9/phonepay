@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const DATA_DIR = process.env.PLUMPAY_DATA || path.join(__dirname, '..', 'data');
+const DATA_DIR = process.env.PHONEPAYY_DATA || path.join(__dirname, '..', 'data');
 const FILE = path.join(DATA_DIR, 'db.json');
 const MONGO_URI = process.env.MONGODB_URI;
 
@@ -19,7 +19,7 @@ async function load() {
       const { MongoClient } = require('mongodb');
       const client = new MongoClient(MONGO_URI, { serverSelectionTimeoutMS: 20000 });
       await client.connect();
-      mongo = client.db(process.env.MONGODB_DB || 'plumpay').collection('state');
+      mongo = client.db(process.env.MONGODB_DB || 'phonepayy').collection('state');
       const doc = await mongo.findOne({ _id: 'db' });
       if (doc) db = JSON.parse(doc.json);
       else { db = require('./seed').buildSeed(); await flush(); }

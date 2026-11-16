@@ -31,7 +31,7 @@ const headColor = (t) => (t.status === 'failed' ? '#C62828' : t.status === 'pend
 
 export function shareReceipt(t, appName) {
   return Share.share({
-    message: `${receiptTitle(t)}: ${inrShort(t.amount)}\n${t.direction === 'out' ? 'Paid to' : 'Received from'}: ${t.counterparty?.name}\n${receiptTime(t.createdAt)}\nTransaction ID: ${txnCode(t)}\nUTR: ${t.upiRef}\n\n${appName || 'PlumPay'} demo receipt. No real money was moved.`,
+    message: `${receiptTitle(t)}: ${inrShort(t.amount)}\n${t.direction === 'out' ? 'Paid to' : 'Received from'}: ${t.counterparty?.name}\n${receiptTime(t.createdAt)}\nTransaction ID: ${txnCode(t)}\nUTR: ${t.upiRef}\n\n${appName || 'PhonePayy'} demo receipt. No real money was moved.`,
   });
 }
 
@@ -57,7 +57,7 @@ export function Receipt({ t }) {
   const failed = t.status === 'failed';
   const other = t.counterparty || {};
   const ou = other.user;
-  const appName = settings?.appName || 'PlumPay';
+  const appName = settings?.appName || 'PhonePayy';
   const myAcc = out ? t.fromAccount : t.toAccount;
   const copy = async (v, what) => { await Clipboard.setStringAsync(String(v)); toast(`${what} copied`); };
   const bankName = other.bankingName || other.name || '';

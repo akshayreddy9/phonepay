@@ -1,5 +1,5 @@
 @echo off
-title PlumPay Server
+title PhonePayy Server
 cd /d "%~dp0server"
 if not exist node_modules (
   echo Installing server packages...

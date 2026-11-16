@@ -44,7 +44,7 @@ export default function MyQr() {
           </View>
         </View>
         <View style={{ flexDirection: 'row', gap: 12, marginTop: 20, width: '100%' }}>
-          <Btn title="Share" icon="share" variant="outline" style={{ flex: 1 }} onPress={() => Share.share({ message: `Pay ${u.name} on PlumPay\nUPI ID: ${u.upiId}\n${upiLink(u)}` })} />
+          <Btn title="Share" icon="share" variant="outline" style={{ flex: 1 }} onPress={() => Share.share({ message: `Pay ${u.name} on PhonePayy\nUPI ID: ${u.upiId}\n${upiLink(u)}` })} />
           {mine ? <Btn title="Open scanner" icon="qr-code-scanner" style={{ flex: 1 }} onPress={() => router.replace('/scan')} />
             : <Btn title="Pay" style={{ flex: 1 }} onPress={() => router.push({ pathname: '/pay', params: { userId: u.id } })} />}
         </View>

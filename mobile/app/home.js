@@ -142,7 +142,7 @@ export default function Home() {
   const hs = settings?.homeSections || {};
   const show = (k) => hs[k] !== false;
   const soon = (w) => () => toast(`${w} is not part of this demo`);
-  const appName = settings?.appName || 'PlumPay';
+  const appName = settings?.appName || 'PhonePayy';
   const primary = accounts.find((a) => a.primary) || accounts[0];
   const cell = (screenWidth() - z(16)) / 4;
   const hero = show('hero');

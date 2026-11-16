@@ -60,7 +60,7 @@ export default function UpiSettings() {
   const [ready, setReady] = useState(false);
   useEffect(() => { const t = setTimeout(() => setReady(true), 700); return () => clearTimeout(t); }, []);
   const soon = (w) => toast(`${w} is not part of this demo`);
-  const appName = settings?.appName || 'PlumPay';
+  const appName = settings?.appName || 'PhonePayy';
   const copy = async () => { await Clipboard.setStringAsync(user.upiId); toast('UPI ID copied'); };
 
   return (

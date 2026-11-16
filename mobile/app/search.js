@@ -7,7 +7,7 @@ import { get } from '../lib/api';
 import { C } from '../lib/theme';
 
 const TITLES = { contacts: 'Pay Anyone', phone: 'Pay Phone Number', upi: 'Pay to UPI ID or Number', all: 'Search', business: 'Businesses' };
-const PLACEHOLDER = { contacts: 'Search for contacts to pay', phone: 'Enter mobile number', upi: 'Enter UPI ID or number (e.g. 98xxxxxx10@plum)', all: 'Search for contacts to pay', business: 'Search businesses' };
+const PLACEHOLDER = { contacts: 'Search for contacts to pay', phone: 'Enter mobile number', upi: 'Enter UPI ID or number (e.g. 98xxxxxx10@ppy)', all: 'Search for contacts to pay', business: 'Search businesses' };
 
 export default function Search() {
   const { mode = 'contacts' } = useLocalSearchParams();
@@ -96,7 +96,7 @@ export default function Search() {
         <View style={{ padding: 24 }}>
           <Text style={{ color: C.muted, lineHeight: 20 }}>
             {mode === 'upi' ? 'Enter the UPI ID of the person or business you want to pay. We will show their verified banking name before you pay.'
-              : 'Enter a 10-digit mobile number registered with PlumPay.'}
+              : 'Enter a 10-digit mobile number registered with PhonePayy.'}
           </Text>
         </View>
       ) : (

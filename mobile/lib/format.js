@@ -143,7 +143,7 @@ export function rupeesInWords(amount) {
   return out + ' Only';
 }
 
-// Mask a UPI ID: 9876543210@plum -> ******3210@plum
+// Mask a UPI ID: 9876543210@ppy -> ******3210@ppy
 export function maskUpi(upi) {
   const [h, d] = String(upi || '').split('@');
   if (!d) return upi || '';

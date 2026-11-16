@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "PlumPay",
+    "name": "PhonePayy",
     "slug": "phonepay",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "plumpay",
+    "scheme": "phonepayy",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.plumpay.app"
+      "bundleIdentifier": "com.phonepayy.app"
     },
     "android": {
-      "package": "com.plumpay.app",
+      "package": "com.phonepayy.app",
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -48,19 +48,19 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "PlumPay uses the camera to scan UPI QR codes."
+          "cameraPermission": "PhonePayy uses the camera to scan UPI QR codes."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "PlumPay needs your photos to set a profile picture or scan a QR image."
+          "photosPermission": "PhonePayy needs your photos to set a profile picture or scan a QR image."
         }
       ],
       [
         "expo-local-authentication",
         {
-          "faceIDPermission": "PlumPay uses Face ID to unlock the app."
+          "faceIDPermission": "PhonePayy uses Face ID to unlock the app."
         }
       ],
       [
@@ -81,7 +81,7 @@
       ]
     ],
     "extra": {
-      "serverUrl": "https://plumpay.onrender.com",
+      "serverUrl": "https://phonepayy.onrender.com",
       "router": {
         "asyncRoutes": {
           "web": true

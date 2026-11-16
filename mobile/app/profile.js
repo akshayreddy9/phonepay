@@ -54,7 +54,7 @@ export default function Profile() {
   const [shake, setShake] = useState(false);
   const [allowed, setAllowed] = useState(false);
   const primary = accounts.find((a) => a.primary) || accounts[0];
-  const appName = settings?.appName || 'PlumPay';
+  const appName = settings?.appName || 'PhonePayy';
   const soon = (w) => () => toast(`${w} is not part of this demo`);
   if (!user) return null;
 

@@ -1,7 +1,7 @@
-# Render Blueprint: deploys the PlumPay server + admin panel as a free web service.
+# Render Blueprint: deploys the PhonePayy server + admin panel as a free web service.
 services:
   - type: web
-    name: plumpay
+    name: phonepayy
     runtime: node
     plan: free
     rootDir: server
@@ -16,4 +16,4 @@ services:
         sync: false
       # Separate database name, so this app's data never mixes with another app on the same Atlas cluster.
       - key: MONGODB_DB
-        value: plumpay
+        value: phonepayy

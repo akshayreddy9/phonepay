@@ -7,7 +7,7 @@ import { defaultServerUrl, getServerUrl, setServerUrl } from '../lib/api';
 import { useApp } from '../lib/store';
 import { C } from '../lib/theme';
 
-// Lets the phone point at the laptop running the PlumPay server (needed for APK builds).
+// Lets the phone point at the laptop running the PhonePayy server (needed for APK builds).
 export default function Server() {
   const { toast, setSettings } = useApp();
   const [url, setUrl] = useState(getServerUrl());
@@ -41,7 +41,7 @@ export default function Server() {
       <Header title="Server address" />
       <ScrollView contentContainerStyle={{ padding: 20 }} keyboardShouldPersistTaps="handled">
         <Text style={{ color: C.muted, lineHeight: 20 }}>
-          Enter the address shown when you start the PlumPay server on your laptop (the "Phone/LAN" line), for example http://192.168.1.8:4002
+          Enter the address shown when you start the PhonePayy server on your laptop (the "Phone/LAN" line), for example http://192.168.1.8:4002
         </Text>
         <Text style={s.label}>Server URL</Text>
         <TextInput style={s.input} value={url} onChangeText={setUrl} autoCapitalize="none" autoCorrect={false} keyboardType="url" />

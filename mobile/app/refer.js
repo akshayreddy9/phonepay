@@ -9,7 +9,7 @@ import { inr } from '../lib/format';
 export default function Refer() {
   const { user, settings, toast } = useApp();
   const bonus = inr(settings?.referralBonus || 0);
-  const message = `Join me on PlumPay — pay friends, recharge and pay bills with UPI. Use my code ${user?.referralCode} and we both get ${bonus}!`;
+  const message = `Join me on PhonePayy — pay friends, recharge and pay bills with UPI. Use my code ${user?.referralCode} and we both get ${bonus}!`;
   return (
     <Screen>
       <Header title="Invite friends" />
@@ -19,7 +19,7 @@ export default function Refer() {
         </View>
         <Text style={{ fontSize: 26, color: C.text, marginTop: 24, textAlign: 'center' }}>Get {bonus} for every friend</Text>
         <Text style={{ fontSize: 15, color: C.muted, marginTop: 10, textAlign: 'center', lineHeight: 22 }}>
-          Invite friends to PlumPay. When they make their first payment, you both get {bonus}.
+          Invite friends to PhonePayy. When they make their first payment, you both get {bonus}.
         </Text>
         <Text style={{ fontSize: 13, color: C.muted, marginTop: 32 }}>Your referral code</Text>
         <Pressable onPress={async () => { await Clipboard.setStringAsync(user?.referralCode || ''); toast('Code copied'); }}
@@ -27,7 +27,7 @@ export default function Refer() {
           <Text style={{ fontSize: 22, color: C.blue, fontWeight: '700', letterSpacing: 2 }}>{user?.referralCode}</Text>
           <MI name="content-copy" size={20} color={C.blue} />
         </Pressable>
-        {[['Share your code', 'Send the invite to friends on any app'], ['Friend signs up', 'They join PlumPay with your code'], ['Both get rewarded', `After their first payment, you both get ${bonus}`]].map(([t, d], i) => (
+        {[['Share your code', 'Send the invite to friends on any app'], ['Friend signs up', 'They join PhonePayy with your code'], ['Both get rewarded', `After their first payment, you both get ${bonus}`]].map(([t, d], i) => (
           <View key={t} style={{ flexDirection: 'row', gap: 14, alignSelf: 'stretch', marginTop: i ? 16 : 36 }}>
             <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: C.blueSoft, alignItems: 'center', justifyContent: 'center' }}><Text style={{ color: C.blueDark, fontWeight: '700' }}>{i + 1}</Text></View>
             <View style={{ flex: 1 }}><Text style={{ fontSize: 15, color: C.text }}>{t}</Text><Text style={{ fontSize: 13, color: C.muted }}>{d}</Text></View>

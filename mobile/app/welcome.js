@@ -21,7 +21,7 @@ export default function Welcome() {
       <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 24 }}>
         <View style={{ alignItems: 'center', marginTop: 8 }}>
           <Wordmark size={52} />
-          <Text style={{ fontSize: 28, color: C.text, marginTop: 20, textAlign: 'center' }}>Welcome to PlumPay</Text>
+          <Text style={{ fontSize: 28, color: C.text, marginTop: 20, textAlign: 'center' }}>Welcome to PhonePayy</Text>
           <Text style={{ fontSize: 15, color: C.muted, marginTop: 8, textAlign: 'center', lineHeight: 22 }}>
             Pay friends, scan any QR code, recharge and pay bills — straight from your bank account with UPI.
           </Text>

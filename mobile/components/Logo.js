@@ -3,7 +3,7 @@ import { Text } from './Text';
 import { useApp } from '../lib/store';
 import { C, SCALE, z } from '../lib/theme';
 
-// Round app mark: purple circle, white "p" with a little leaf (a plum).
+// Round app mark: purple circle, white "p" with a little leaf (brand mark).
 // Uses the logo uploaded in the admin panel when there is one. `raw` skips screen scaling.
 export function Logo({ size = 48, raw, color = C.purple, ink = '#fff' }) {
   const app = useApp();
@@ -22,7 +22,7 @@ export function Logo({ size = 48, raw, color = C.purple, ink = '#fff' }) {
 // Text wordmark in brand purple. Name comes from admin settings.
 export function Wordmark({ size = 26, style, color = C.purple }) {
   const app = useApp();
-  const name = app?.settings?.appName || 'PlumPay';
+  const name = app?.settings?.appName || 'PhonePayy';
   return <Text style={[{ fontSize: size, fontWeight: '700', color, letterSpacing: -size * 0.02, includeFontPadding: false }, style]}>{name}</Text>;
 }
 
