@@ -86,7 +86,14 @@
         "asyncRoutes": {
           "web": true
         }
+      },
+      "eas": {
+        "projectId": "05ed0e37-76f3-4dc8-bcba-7aa8d112b00f"
       }
+    },
+    "owner": "akshayreddy9848",
+    "updates": {
+      "url": "https://u.expo.dev/05ed0e37-76f3-4dc8-bcba-7aa8d112b00f"
     }
   }
 }
