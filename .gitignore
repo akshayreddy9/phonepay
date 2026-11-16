@@ -1,0 +1,11 @@
+node_modules/
+server/data/
+mobile/.expo/
+mobile/dist/
+*.log
+.env
+.env.*
+.claude/
+mobile/.claude/
+*.tmp
+*.apk
